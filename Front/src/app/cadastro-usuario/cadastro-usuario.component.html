@@ -1,0 +1,100 @@
+<div class="container-cad container-fluid">
+  <div class="row">
+    <div class="form col-md">
+      <form >
+        <div class="row text-center">
+          <h1>Formulario de Cadastro</h1>
+        </div>
+
+
+        <div class="row">
+          <div class="col-md">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Nome Completo</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nome" required >
+            </div>
+          </div>
+
+          <div class="col-md">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Endereço de email</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Seu email" required>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md">
+            <div class="form-group">
+              <label for="exampleInputPassword1">Senha</label>
+              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha" required>
+            </div>
+          </div>
+
+
+            <div class="col-md">
+              <div class="form-group">
+                <label for="exampleInputEmail1">CPF</label>
+                <input class="form-control"  placeholder="CPF" onkeypress="validar(this); return numerico(event);" required>
+              </div>
+            </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md">
+            <div class="mb-3">
+              <label for="disabledSelect" class="form-label" id="select">Sexo</label>
+              <select id="disabledSelect" id="select-inpu" class="form-select" required>
+                <option>Homen</option>
+                <option>Mulher</option>
+              </select>
+            </div>
+          </div>
+
+
+            <div class="col-md">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Telefone</label>
+                <input pattern="^\d{2}-\d{5}-\d{4}$" type="tel"  class="form-control" onkeypress="validar(this); return numerico(event);" placeholder="Telefone com DDD" required >
+              </div>
+            </div>
+        </div>
+    <br>
+
+        <div class="row">
+          <div class="col-md-3" style="margin-top: -30px;">
+            <div class="mb-3">
+              <label for="disabledSelect" class="form-label" id="select">Forma de Pagamento</label>
+              <select id="disabledSelect" id="select-inpu" class="form-select" required>
+                <option>Crédito</option>
+                <option>Débito</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="col-md"></div>
+          <div class="col-md"></div>
+
+        </div>
+
+        <button type="submit" class="btn btn-primary">Enviar</button>
+      </form>
+    </div>
+
+    <div class="detalhes col-md-4" style="display: flex; justify-content: center; flex-direction: column;">
+
+      <div>
+        <img src="../../assets/img/Quartos/5.jpg" alt="">
+      </div>
+
+      <br>
+
+      <div>
+        <b>Preco = </b>{{service.valorTotalReserva}}
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
