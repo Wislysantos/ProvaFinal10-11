@@ -22,6 +22,7 @@ export class ReservasService {
   DataEntrada: "";
   DataSaida:"";
   valorTotalReserva: number;
+  url: string;
 
   postReservas(){
     return this.http.post(this.baseURL, this.formData);
@@ -50,8 +51,9 @@ export class ReservasService {
 
  }
 
- CalcularData(dtEntrada: string, dtSaida: string, p : number){
+ CalcularData(dtEntrada: string, dtSaida: string, p : number, img : string){
   if(dtEntrada != "" && dtSaida != ""){
+  this.url = "/assets/img/Quartos/"+img;
   var dt1 = new Date(dtEntrada);
   var dt2 = new Date(dtSaida);
   var timeDiff = Math.abs(dt1.getTime() - dt2.getTime());
@@ -59,7 +61,7 @@ export class ReservasService {
   this.valorTotalReserva = diffDays * p;
   }else{
     alert("Por favor preencha os campo de Data")
-    
+
   }
 }
 

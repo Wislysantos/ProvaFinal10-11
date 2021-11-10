@@ -82,12 +82,12 @@
       <ng-container *ngIf="DataEntrada !='' && DataSaida != '' ">
         <tbody *ngFor="let quarto of service.list">
             <tr  *ngIf="quarto.disponivel.toUpperCase() == 'SIM';">
-              <td><img src="/assets/" alt=""></td>
+              <td><img src="/assets/img/Quartos/{{quarto.imageUrl}}" style="width: 500px; border-radius: 5px;" alt=""></td>
               <td (click)="povuarForm(quarto)">{{quarto.tipoQuarto}}</td>
               <td (click)="povuarForm(quarto)">{{quarto.ocuMaxima}}</td>
               <td (click)="povuarForm(quarto)">{{quarto.diariaValor}}</td>
               <td>
-                <button #reservas routerLink="/cadastro-usuario" class="btn btn-primary" (click)="service.CalcularData(DataEntrada, DataSaida, quarto.diariaValor)">Reservar</button>
+                <button #reservas routerLink="/cadastro-usuario" class="btn btn-primary" (click)="service.CalcularData(DataEntrada, DataSaida, quarto.diariaValor, quarto.imageUrl)">Reservar</button>
               </td>
             </tr>
         </tbody>

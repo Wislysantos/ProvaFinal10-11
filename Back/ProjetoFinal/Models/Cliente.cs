@@ -29,43 +29,13 @@ namespace ProjetoFinal.Models {
 
         [Required]
         [Column(TypeName = "nvarchar(12)")]
-        public string Telefone { get; set; }
-
-        [Required]
-        [Column(TypeName = "nvarchar(10)")]
-        public string Nascimento { get; set; }
+        public string Telefone { get; set; }       
 
         [Required]
         [Column(TypeName = "nvarchar(15)")]
         public string Sexo { get; set; }
 
-        [Required]
-        [Column(TypeName = "nvarchar(15)")]
-        public string Cep { get; set; }
-
-        [Required]
-        [Column(TypeName = "nvarchar(120)")]
-        public string Endereco { get; set; }
-
-        [Required]
-        [Column(TypeName = "int")]
-        public int Numero { get; set; }
-
-        [Required]
-        [Column(TypeName = "nvarchar(120)")]
-        public string Complemento { get; set; }
-
-        [Required]
-        [Column(TypeName = "nvarchar(50)")]
-        public string Bairro { get; set; }
-
-        [Required]
-        [Column(TypeName = "nvarchar(50)")]
-        public string Estado { get; set; }
-
-        [Required]
-        [Column(TypeName = "nvarchar(50)")]
-        public string Municipio { get; set; }
+        
 
 
     }

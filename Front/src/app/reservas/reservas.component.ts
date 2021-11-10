@@ -104,9 +104,7 @@ export class ReservasComponent implements OnInit {
     }
 
   }
-  ver1(data: string ){
-    console.log(data);
-  }
+ 
 
 
 

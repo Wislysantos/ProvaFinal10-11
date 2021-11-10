@@ -26,18 +26,6 @@ namespace ProjetoFinal.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Bairro")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("Cep")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(15)");
-
-                    b.Property<string>("Complemento")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(120)");
-
                     b.Property<string>("Cpf")
                         .IsRequired()
                         .HasColumnType("nvarchar(18)");
@@ -46,28 +34,9 @@ namespace ProjetoFinal.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<string>("Endereco")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(120)");
-
-                    b.Property<string>("Estado")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("Municipio")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("Nascimento")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(10)");
-
                     b.Property<string>("Nome")
                         .IsRequired()
                         .HasColumnType("nvarchar(100)");
-
-                    b.Property<int>("Numero")
-                        .HasColumnType("int");
 
                     b.Property<string>("Senha")
                         .IsRequired()
@@ -93,6 +62,9 @@ namespace ProjetoFinal.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("ClienteID")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("DataDeEntrada")
                         .HasColumnType("DateTime");
 
@@ -102,7 +74,12 @@ namespace ProjetoFinal.Migrations
                     b.Property<int>("QuartoID")
                         .HasColumnType("int");
 
+                    b.Property<decimal>("ValorTotalDiaria")
+                        .HasColumnType("decimal(5,2)");
+
                     b.HasKey("EstadiaID");
+
+                    b.HasIndex("ClienteID");
 
                     b.HasIndex("QuartoID");
 
@@ -123,6 +100,10 @@ namespace ProjetoFinal.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(3)");
 
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(500)");
+
                     b.Property<int>("OcuMaxima")
                         .HasColumnType("int");
 
@@ -137,11 +118,19 @@ namespace ProjetoFinal.Migrations
 
             modelBuilder.Entity("ProjetoFinal.Models.Estadia", b =>
                 {
+                    b.HasOne("ProjetoFinal.Models.Cliente", "Cliente")
+                        .WithMany()
+                        .HasForeignKey("ClienteID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("ProjetoFinal.Models.Quarto", "Quarto")
                         .WithMany()
                         .HasForeignKey("QuartoID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Cliente");
 
                     b.Navigation("Quarto");
                 });

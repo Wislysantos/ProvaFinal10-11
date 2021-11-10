@@ -5,8 +5,7 @@ export class Reservas {
   tipoQuarto: string ='';
   ocuMaxima: number = 0;
   disponivel: string = 'sim';
-
-
+  imageUrl:string = '';
 }
 
 

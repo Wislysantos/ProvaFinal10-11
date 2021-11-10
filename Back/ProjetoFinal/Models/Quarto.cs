@@ -16,7 +16,6 @@ namespace ProjetoFinal.Models {
         public float DiariaValor { get; set; }
 
         [Required]
-        [Column(TypeName = "nvarchar(20)")]
         public string TipoQuarto { get; set; }
 
         [Required]
@@ -26,6 +25,10 @@ namespace ProjetoFinal.Models {
         [Required]
         [Column(TypeName = "nvarchar(3)")]
         public string Disponivel { get; set; }
+
+        [Required]
+        [Column(TypeName = "nvarchar(500)")]
+        public string ImageUrl { get; set; }
 
     }
 }
