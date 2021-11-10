@@ -14,6 +14,8 @@ import { ContateNosComponent } from './contate-nos/contate-nos.component';
 import { CadastroUsuarioComponent } from './cadastro-usuario/cadastro-usuario.component';
 import { GaleriaComponent } from './galeria/galeria.component';
 import { ReservasComponent } from './reservas/reservas.component';
+import { LoginComponent } from './login/login.component';
+import { LoginAuthService } from './shared/login-auth.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { ReservasComponent } from './reservas/reservas.component';
     ContateNosComponent,
     CadastroUsuarioComponent,
     GaleriaComponent,
-    ReservasComponent
+    ReservasComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,7 @@ import { ReservasComponent } from './reservas/reservas.component';
     FormsModule
 
   ],
-  providers: [],
+  providers: [LoginAuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

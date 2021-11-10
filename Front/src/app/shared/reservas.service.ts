@@ -1,3 +1,4 @@
+import { CadastroUsuario } from './cadastro-usuario.model';
 import { Reservas } from './reservas.model';
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
@@ -17,12 +18,14 @@ export class ReservasService {
   readonly baseURL = 'https://localhost:5001/api/quartos'
   //readonly baseURL = 'https://localhost:44377/api/quartos'
   formData: Reservas = new Reservas();
+
   list: Reservas[];
   valor: number;
   DataEntrada: "";
   DataSaida:"";
   valorTotalReserva: number;
   url: string;
+
 
   postReservas(){
     return this.http.post(this.baseURL, this.formData);
@@ -54,11 +57,13 @@ export class ReservasService {
  CalcularData(dtEntrada: string, dtSaida: string, p : number, img : string){
   if(dtEntrada != "" && dtSaida != ""){
   this.url = "/assets/img/Quartos/"+img;
+
   var dt1 = new Date(dtEntrada);
   var dt2 = new Date(dtSaida);
   var timeDiff = Math.abs(dt1.getTime() - dt2.getTime());
   var diffDays = Math.ceil(timeDiff /(1000*3600*24));
   this.valorTotalReserva = diffDays * p;
+  console.log(this.valorTotalReserva)
   }else{
     alert("Por favor preencha os campo de Data")
 

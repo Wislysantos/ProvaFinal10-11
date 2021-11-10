@@ -79,7 +79,7 @@
           <th></th>
         </tr>
       </thead>
-      <ng-container *ngIf="DataEntrada !='' && DataSaida != '' ">
+      <!-- <ng-container *ngIf="DataEntrada !='' && DataSaida != '' "> -->
         <tbody *ngFor="let quarto of service.list">
             <tr  *ngIf="quarto.disponivel.toUpperCase() == 'SIM';">
               <td><img src="/assets/img/Quartos/{{quarto.imageUrl}}" style="width: 500px; border-radius: 5px;" alt=""></td>
@@ -91,8 +91,7 @@
               </td>
             </tr>
         </tbody>
-      </ng-container>
-
+      <!-- </ng-container> -->
 
       <tfoot >
         <tr *ngIf="service.list == null">

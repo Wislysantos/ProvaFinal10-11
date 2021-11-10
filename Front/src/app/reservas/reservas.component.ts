@@ -53,10 +53,6 @@ export class ReservasComponent implements OnInit {
     this.quartosFiltrados = this.filtroLista ? this.filtrarQuartos(this.filtroLista): this.quartos;
   }
 
-
-
-
-
   PequisarQuartos(){
     try{
 
@@ -92,10 +88,8 @@ export class ReservasComponent implements OnInit {
   }
 
   guardarPreco(id: number){
-
     //for (let index = 0; index < this.service.list.length; index++) {
       //if(this.service.list.)
-
    // }
   }
 
@@ -104,10 +98,5 @@ export class ReservasComponent implements OnInit {
     }
 
   }
- 
-
-
-
-
 }
 

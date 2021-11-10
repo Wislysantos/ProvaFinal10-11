@@ -1,6 +1,8 @@
-import { preco } from './../../assets/global';
+import { ToastrService } from 'ngx-toastr';
+import { CadastroUsuarioService } from './../shared/cadastro-usuario.service';
+import { CadastroUsuario } from './../shared/cadastro-usuario.model';
 import { Component, OnInit, Input } from '@angular/core';
-import * as myGlobals from '../../assets/global';
+import { NgForm } from '@angular/forms';
 import { ReservasService } from '../shared/reservas.service';
 
 @Component({
@@ -11,15 +13,52 @@ import { ReservasService } from '../shared/reservas.service';
 export class CadastroUsuarioComponent implements OnInit {
 
 
+  constructor(public service: ReservasService, public cadastro: CadastroUsuarioService,
+     private toastr: ToastrService ) { }
 
-  valorTotalReserva = 0;
-
-  constructor(public service: ReservasService ) { }
+  valorTotalReserva: number;
 
   ngOnInit(): void {
-
   }
 
+  onSubmit(form: NgForm) {
+    if (this.cadastro.formDatacas.clienteID == 0)
+      this.insertRecord(form);
+    else
+      this.updateRecord(form);
+  }
 
+  insertRecord(form: NgForm) {
+    this.cadastro.postCadastroUsuario().subscribe(
+      res => {
+        this.resetForm(form);
+        this.cadastro.refreshListCadastroUsuario();
+        this.toastr.success('Submitted successfully', 'Payment Detail Register')
+      },
+      err => { console.log(err); }
+    );
+  }
+
+  updateRecord(form: NgForm) {
+    this.cadastro.putCadastroUsuario().subscribe(
+      res => {
+        this.resetForm(form);
+        this.cadastro.refreshListCadastroUsuario();
+        this.toastr.info('Updated successfully', 'Payment Detail Register')
+      },
+      err => { console.log(err); }
+    );
+  }
+
+  resetForm(form: NgForm) {
+    form.form.reset();
+    this.cadastro.formDatacas = new CadastroUsuario();
+  }
+
+  ver(){
+
+    console.log(this.valorTotalReserva);
+
+  }
 
 }

@@ -35,20 +35,12 @@
             <a class="nav-link" aria-current="page" routerLink="reserva"  style="color: white;">Reserva</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" routerLink="contate-nos"  style="color: white;">Contate-nos</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" style="color: white;" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Dropdown
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
+            <a class="nav-link" aria-current="page" routerLink="login"  style="color: white;">Contate-nos</a>
           </li>
 
+          <li class="nav-item" *ngIf="mostrarMenu">
+            <a class="nav-link" aria-current="page" routerLink="login"  style="color: white;">Ta fluido</a>
+          </li>
         </ul>
       </div>
     </div>

@@ -1,5 +1,4 @@
-import { CadastroUsuario } from './cadastro-usuario';
-import { Reservas } from './reservas.model';
+import { CadastroUsuario } from './cadastro-usuario.model';
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { RouterLink } from '@angular/router';
@@ -13,20 +12,33 @@ export class CadastroUsuarioService {
 
   }
 
+
   readonly baseURL = 'https://localhost:5001/api/Clientes';
-  formData: CadastroUsuario = new CadastroUsuario();
+  formDatacas: CadastroUsuario = new CadastroUsuario();
+  listCadastro: CadastroUsuario[];
 
   postCadastroUsuario(){
-    return this.http.post(this.baseURL, this.formData)
+    return this.http.post(this.baseURL, this.formDatacas)
   }
 
   putCadastroUsuario(){
-    return this.http.put(`${this.baseURL}/${this.formData.clienteID}`, this.formData);
+    return this.http.put(`${this.baseURL}/${this.formDatacas.clienteID}`, this.formDatacas);
   }
 
-  deleteReservas(id: number){
+  deleteCadastroUsuario(id: number){
     return this.http.delete(`${this.baseURL}/${id}`);
   }
+
+  refreshListCadastroUsuario(){
+    this.http.get(this.baseURL)
+    .toPromise()
+    .then(res =>this.listCadastro = res as CadastroUsuario[]);
+  }
+
+  getCadastroUsuario(id: number){
+    return this.http.get(`${this.baseURL}/${id}`)
+  }
+
 
 
 }
