@@ -28,7 +28,7 @@
           <div class="col-md">
             <div class="form-group">
               <label>Senha</label>
-              <input type="password" class="form-control" placeholder="Senha" id="exampleInputPassword1"  name="senha" #senha="ngModel" [(ngModel)]="cadastro.formDatacas.senha" required>
+              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha" name="senha" #senha="ngModel" [(ngModel)]="cadastro.formDatacas.senha" required>
             </div>
           </div>
 
@@ -36,7 +36,7 @@
             <div class="col-md">
               <div class="form-group">
                 <label>CPF</label>
-                <input type="number" placeholder="CPF" onkeypress="validar(this); return numerico(event);" class="form-control" placeholder="CPF" name="cpf" #cpf="ngModel" [(ngModel)]="cadastro.formDatacas.cpf" required [class.invalid]="cpf.invalid && cpf.touched">
+                <input class="form-control" placeholder="CPF" name="cpf" #cpf="ngModel" [(ngModel)]="cadastro.formDatacas.cpf" required [class.invalid]="cpf.invalid && cpf.touched">
               </div>
             </div>
         </div>
@@ -56,7 +56,7 @@
             <div class="col-md">
               <div class="form-group">
                 <label >Telefone</label>
-                <input  type="number"  class="form-control" placeholder="Telefone com DDD" onkeypress="validar(this); return numerico(event);" name="telefone"  #telefone="ngModel" [(ngModel)]="cadastro.formDatacas.telefone" required [class.invalid]=" telefone.invalid && telefone.touched" >
+                <input  type="tel"  class="form-control" placeholder="Telefone com DDD" name="telefone"  #telefone="ngModel" [(ngModel)]="cadastro.formDatacas.telefone" required [class.invalid]=" telefone.invalid && telefone.touched" >
               </div>
             </div>
         </div>
@@ -72,31 +72,14 @@
               </select>
             </div>
           </div>
-          
+
           <div class="col-md"></div>
           <div class="col-md"></div>
-          
+
         </div>
       -->
 
-        <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Enviar</button>
+        <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Cadastro</button>
       </form>
     </div>
-
-    <div class="detalhes col-md-4" style="display: flex; justify-content: center; flex-direction: column;">
-
-      <div>
-        <img src={{service.url}}>
-      </div>
-
-      <br>
-
-      <div>
-        <b>Preco = </b>{{service.valorTotalReserva}}
-      </div>
-
-    </div>
-
-  </div>
 </div>
-

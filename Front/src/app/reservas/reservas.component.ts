@@ -54,22 +54,17 @@ export class ReservasComponent implements OnInit {
   }
 
   PequisarQuartos(){
+    
     try{
 
       if(this.DataEntrada > this.DataSaida){
 
         alert("Por favor Data de entrada não pode ser maior que data de saida")
-      }else{
+        this.DataSaida = this.DataEntrada
 
-         console.log(this.DataEntrada < this.DataSaida)
-        console.log(this.QtdPessoa + "\n"+ typeof this.QtdPessoa)
-        console.log(parseInt(this.QtdPessoa) > 0)
+      }else{        
 
-      }
-
-      console.log(this.DataEntrada < this.DataSaida);
-      console.log(this.QtdPessoa + "\n"+ typeof this.QtdPessoa);
-      console.log(parseInt(this.QtdPessoa) > 0);
+      }     
     }catch(erro){
       alert("Erro no servidor Atualize a pagina")
       console.log(erro);

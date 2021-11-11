@@ -1,0 +1,56 @@
+<div class="container-cad container-fluid">
+  <div class="row">
+    <div class="form col-md">
+      <form novalidate autocomplete="off" #form="ngForm" (submit)="onSubmitt(form)">
+        <input type="hidden" name="quartoID" [value]="quarto.formDataQuarto.quartoID" />
+        <div class="row text-center">
+          <h1>Formulario de cadastro quarto</h1>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <div class="form-group">
+              <label>Valor da Diaria</label>
+              <input class="form-control form-control-sd" placeholder="Digite o valor da diaria" name="diariaValor"
+              #diariaValor="ngModel" [(ngModel)]="quarto.formDataQuarto.diariaValor"
+              required [class.invalid]=" diariaValor.invalid && diariaValor.touched">
+            </div>
+          </div>
+
+          <div class="col-md">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Tipo do Quarto</label>
+              <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Luxo" name="tipoQuarto" #tipoQuarto="ngModel" [(ngModel)]="quarto.formDataQuarto.tipoQuarto" required [class.invalid]=" tipoQuarto.invalid && tipoQuarto.touched">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md">
+            <div class="form-group">
+              <label>Quantas de Pode ocupar quarto</label>
+              <input class="form-control" placeholder="ocuMaxima" name="ocuMaxima" #ocuMaxima="ngModel" [(ngModel)]="quarto.formDataQuarto.ocuMaxima" required [class.invalid]="ocuMaxima.invalid && ocuMaxima.touched">
+            </div>
+          </div>
+            <div class="col-md">
+              <div class="form-group">
+                <label>Quarto esta Disponivel</label>
+                <input class="form-control" placeholder="Ex.. 1" name="disponivel" #disponivel="ngModel" [(ngModel)]="quarto.formDataQuarto.disponivel" required [class.invalid]="disponivel.invalid && disponivel.touched">
+              </div>
+            </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md">
+            <div class="form-group">
+              <label>imagem </label>
+              <input class="form-control form-control-sd" placeholder="imagem" name="imageUrl"
+              #imageUrl="ngModel" [(ngModel)]="quarto.formDataQuarto.imageUrl"
+              required [class.invalid]=" imageUrl.invalid && imageUrl.touched">
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Enviar</button>
+      </form>
+    </div>
+</div>

@@ -12,7 +12,6 @@ export class CadastroUsuarioService {
 
   }
 
-
   readonly baseURL = 'https://localhost:5001/api/Clientes';
   formDatacas: CadastroUsuario = new CadastroUsuario();
   listCadastro: CadastroUsuario[];

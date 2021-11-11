@@ -10,6 +10,7 @@ export class LoginAuthService {
   [x: string]: any;
 
   private usuarioAutenticado: boolean = false;
+  private adminAutenticado: boolean = false;
 
   mostrarMenuEmitter = new EventEmitter<boolean>()
 
@@ -21,26 +22,28 @@ export class LoginAuthService {
   fazerLogin(usuario: Usuario){
 
     if (usuario.email == 'admin' && usuario.senha== '123'){
-      this.usuarioAutenticado = true;
+      this.adminAutenticado = true;
       this.mostrarMenuEmitter.emit(true);
+
     } else if (usuario.email == 'usuario@email.com' && usuario.senha== '123456'){
 
       this.usuarioAutenticado = true;
       
-      /* this.router.navigate(['/']) */
-      
-
-
+      this.router.navigate(['/finalizar-reserva'])
     } else {
       this.usuarioAutenticado = false;
+      this.adminAutenticado = false;
 
       alert("Email ou Senha errado")
 
       this.mostrarMenuEmitter.emit(false);
 
-    }
 
-    console.log(this.mostrarMenuEmitter)
+    }
+  }
+
+  adminEstaAutenticado(){
+    return this.adminAutenticado;
   }
 
 }

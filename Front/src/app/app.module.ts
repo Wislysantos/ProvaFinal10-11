@@ -16,6 +16,10 @@ import { GaleriaComponent } from './galeria/galeria.component';
 import { ReservasComponent } from './reservas/reservas.component';
 import { LoginComponent } from './login/login.component';
 import { LoginAuthService } from './shared/login-auth.service';
+import { AdminAreaComponent } from './admin-area/admin-area.component';
+import { AuthGuard } from './guards/auth.guard';
+import { FinalizarReservaComponent } from './reservas/finalizar-reserva/finalizar-reserva.component';
+import { QuartoComponent } from './quarto/quarto.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +30,10 @@ import { LoginAuthService } from './shared/login-auth.service';
     CadastroUsuarioComponent,
     GaleriaComponent,
     ReservasComponent,
-    LoginComponent
+    LoginComponent,
+    AdminAreaComponent,
+    FinalizarReservaComponent,
+    QuartoComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +44,7 @@ import { LoginAuthService } from './shared/login-auth.service';
     FormsModule
 
   ],
-  providers: [LoginAuthService],
+  providers: [LoginAuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

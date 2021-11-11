@@ -1,7 +1,7 @@
 <div class="body">
-  <div class="img-topo">
+  <!-- <div class="img-topo">
     <img src="./../../assets/img/13.jpg" alt="">
-  </div>
+  </div> -->
 
   <div class="check-in container">
     <div class="row">
@@ -35,7 +35,7 @@
       <div class="col-md" style="display: fex; align-items: center; margin-top: 8px">
         <label for=""></label><br>
 
-        <button type="button" class="btn btn-primary" style="width: 100%; height: 47px;" (click)="PequisarQuartos()">Pesquisar</button>
+        <button type="button" class="btn btn-primary" style="width: 100%; height: 47px;" >Pesquisar</button>
       </div>
     </div>
   </div>
@@ -79,19 +79,24 @@
           <th></th>
         </tr>
       </thead>
+      <ng-container  >
       <!-- <ng-container *ngIf="DataEntrada !='' && DataSaida != '' "> -->
         <tbody *ngFor="let quarto of service.list">
-            <tr  *ngIf="quarto.disponivel.toUpperCase() == 'SIM';">
-              <td><img src="/assets/img/Quartos/{{quarto.imageUrl}}" style="width: 500px; border-radius: 5px;" alt=""></td>
-              <td (click)="povuarForm(quarto)">{{quarto.tipoQuarto}}</td>
-              <td (click)="povuarForm(quarto)">{{quarto.ocuMaxima}}</td>
-              <td (click)="povuarForm(quarto)">{{quarto.diariaValor}}</td>
-              <td>
-                <button #reservas routerLink="/cadastro-usuario" class="btn btn-primary" (click)="service.CalcularData(DataEntrada, DataSaida, quarto.diariaValor, quarto.imageUrl)">Reservar</button>
-              </td>
-            </tr>
+          <tr  *ngIf="quarto.disponivel.toUpperCase() == 'SIM';" alt="" style="border: 1px solid red;" class="h-100">
+            <td><img src="/assets/img/Quartos/{{quarto.imageUrl}}" style="width: 500px; border-radius: 5px;" alt="Img Quarto"></td>
+            <td (click)="povuarForm(quarto)">{{quarto.tipoQuarto}}</td>
+            <td (click)="povuarForm(quarto)">{{quarto.ocuMaxima}}</td>
+            <td (click)="povuarForm(quarto)">{{quarto.diariaValor}}</td>
+            <td>
+              <button #reservas routerLink="/login" class="btn btn-primary" (click)="service.CalcularData(DataEntrada, DataSaida, quarto.diariaValor, quarto.imageUrl)">Reservar</button>
+              <button #reservas routerLink="/login" class="btn btn-danger" (click)="service.CalcularData(DataEntrada, DataSaida, quarto.diariaValor, quarto.imageUrl)"><i class="fas fa-trash-alt"></i></button>
+              <button #reservas routerLink="/login" class="btn btn-primary" (click)="service.CalcularData(DataEntrada, DataSaida, quarto.diariaValor, quarto.imageUrl)" ><i class="fas fa-edit"></i></button>
+            </td>
+          </tr>
         </tbody>
-      <!-- </ng-container> -->
+        <!-- </ng-container> -->
+      </ng-container>
+
 
       <tfoot >
         <tr *ngIf="service.list == null">

@@ -12,6 +12,7 @@ import { ReservasService } from '../shared/reservas.service';
 })
 export class CadastroUsuarioComponent implements OnInit {
 
+  public asd ="";
 
   constructor(public service: ReservasService, public cadastro: CadastroUsuarioService,
      private toastr: ToastrService ) { }
@@ -56,9 +57,7 @@ export class CadastroUsuarioComponent implements OnInit {
   }
 
   ver(){
-
-    console.log(this.valorTotalReserva);
-
+    console.log(this.asd);
   }
 
 }
