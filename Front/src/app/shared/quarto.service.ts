@@ -9,9 +9,10 @@ export class QuartoService {
 
   constructor(private http: HttpClient) { }
 
-  readonly baseURL = 'https://localhost:5001/api/Quartos';
+  readonly baseURL = 'https://localhost:5001/api/quartos'
   formDataQuarto: Quarto = new Quarto();
   listQuarto: Quarto[];
+
 
   postQuarto(){
     return this.http.post(this.baseURL, this.formDataQuarto)

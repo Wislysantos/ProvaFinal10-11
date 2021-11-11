@@ -6,6 +6,7 @@ import { ToastrService } from 'ngx-toastr';
 import { ReservasService } from '../shared/reservas.service';
 import { Reservas } from '../shared/reservas.model';
 import * as myGlobals from '../../assets/global';
+import { LoginAuthService } from '../shared/login-auth.service';
 
 
 
@@ -19,14 +20,16 @@ export class ReservasComponent implements OnInit {
 
   @Output() myEvent = new EventEmitter();
 
+  mostrarMenu: boolean = false;
 
   constructor(public service: ReservasService,
-     private toastr: ToastrService) {
+     private toastr: ToastrService, private authService: LoginAuthService) {
      }
 
   ngOnInit(): void {
     this.service.refreshList();
   }
+
   povuarForm(selectedRecord: Reservas){
     this.service.formData = Object.assign({}, selectedRecord);
   }
@@ -54,7 +57,7 @@ export class ReservasComponent implements OnInit {
   }
 
   PequisarQuartos(){
-    
+
     try{
 
       if(this.DataEntrada > this.DataSaida){
@@ -62,9 +65,9 @@ export class ReservasComponent implements OnInit {
         alert("Por favor Data de entrada não pode ser maior que data de saida")
         this.DataSaida = this.DataEntrada
 
-      }else{        
+      }else{
 
-      }     
+      }
     }catch(erro){
       alert("Erro no servidor Atualize a pagina")
       console.log(erro);
@@ -91,7 +94,12 @@ export class ReservasComponent implements OnInit {
   tipoDOQuarto(){
     if(this.filtroTipo.toLowerCase() == "premium"){
     }
-
   }
+
+  
+
+
+
+
 }
 

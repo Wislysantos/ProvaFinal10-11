@@ -1,10 +1,10 @@
 export class Quarto {
 
-    quartoID: number;
-    diariaValor: number;
-    tipoQuarto: string;
-    ocuMaxima: number;
-    disponivel: string;
-    imageUrl: string;
+    quartoID: number = 0;
+    diariaValor: number = 0;
+    tipoQuarto: string ='';
+    ocuMaxima: number = 0;
+    disponivel: string= '';
+    imageUrl: string= '';
 
 }

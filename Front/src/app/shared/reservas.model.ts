@@ -4,7 +4,7 @@ export class Reservas {
   diariaValor:number =0;
   tipoQuarto: string ='';
   ocuMaxima: number = 0;
-  disponivel: string = 'sim';
+  disponivel: string = '';
   imageUrl:string = '';
 }
 

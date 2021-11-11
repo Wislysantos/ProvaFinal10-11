@@ -3,6 +3,8 @@ import { Quarto } from './../shared/quarto.model';
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { NgForm } from '@angular/forms';
+import { ReservasService } from '../shared/reservas.service';
+import { Reservas } from '../shared/reservas.model';
 
 @Component({
   selector: 'app-quarto',
@@ -11,24 +13,25 @@ import { NgForm } from '@angular/forms';
 })
 export class QuartoComponent implements OnInit {
 
-  constructor(public quarto: QuartoService,
+  constructor(public service: ReservasService, public quar: QuartoService,
     private toastr: ToastrService) { }
 
   ngOnInit(): void {
+    this.service.refreshList();
   }
 
   onSubmitt(form: NgForm) {
-    if (this.quarto.formDataQuarto.quartoID == 0)
+    if (this.quar.formDataQuarto.quartoID == 0)
       this.insertRecord(form);
     else
       this.updateRecord(form);
   }
 
   insertRecord(form: NgForm) {
-    this.quarto.postQuarto().subscribe(
+    this.quar.postQuarto().subscribe(
       res => {
         this.resetForm(form);
-        this.quarto.refreshListQuarto();
+        this.quar.refreshListQuarto();
         this.toastr.success('Submitted successfully', 'Payment Detail Register')
       },
       err => { console.log(err); }
@@ -36,10 +39,10 @@ export class QuartoComponent implements OnInit {
   }
 
   updateRecord(form: NgForm) {
-    this.quarto.putQuarto().subscribe(
+    this.quar.putQuarto().subscribe(
       res => {
         this.resetForm(form);
-        this.quarto.refreshListQuarto();
+        this.quar.refreshListQuarto();
         this.toastr.info('Updated successfully', 'Payment Detail Register')
       },
       err => { console.log(err); }
@@ -48,7 +51,24 @@ export class QuartoComponent implements OnInit {
 
   resetForm(form: NgForm) {
     form.form.reset();
-    this.quarto.formDataQuarto = new Quarto();
+    this.quar.formDataQuarto = new Quarto();
+  }
+
+  povuarForm(selectedRecord: Reservas){
+    this.service.formData = Object.assign({}, selectedRecord);
+  }
+  
+  onDelete(id: number) {
+    if (confirm('Are you sure to delete this record?')) {
+      this.service.deleteReservas(id)
+        .subscribe(
+          res => {
+            this.service.refreshList();
+            this.toastr.error("Deleted successfully", 'Payment Detail Register');
+          },
+          err => { console.log(err) }
+        )
+    }
   }
 
 }
