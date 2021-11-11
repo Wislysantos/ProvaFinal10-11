@@ -17,3 +17,12 @@ function numerico(evt) {
   return false;
 }
 
+//Pegar valor do Select
+
+var select = document.getElementById('tipoQuarto');
+var value = select.options[select.selectedIndex].value;
+
+function mostrarValue(){
+  console.log(value);
+}
+

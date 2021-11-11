@@ -56,11 +56,11 @@
       <div class="col-md">
         <div class="form-inline">
           <div class="form-group mb-2">
-            <label for="">Tipo de Quartos:</label><br>
-            <select name="quartos" [(ngModel)]="filtroTipo" >
-              <option value="0">Tipo de Quarto</option>
+            <label>Tipo do quarto</label>
+            <select   class="form-select"  name="quartos" [(ngModel)]="filtroTipo" >
+              <option selected>Tipo de Quarto</option>
               <option value="premium">Premium</option>
-              <option value="estandart">Estandart</option>
+              <option value="estandart">Standart</option>
               <option value="economico">Economic</option>
             </select>
           </div>

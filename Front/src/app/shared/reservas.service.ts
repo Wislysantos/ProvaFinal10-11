@@ -18,8 +18,8 @@ export class ReservasService {
   readonly baseURL = 'https://localhost:5001/api/quartos'
   //readonly baseURL = 'https://localhost:44377/api/quartos'
   formData: Reservas = new Reservas();
-
   list: Reservas[];
+
   valor: number;
   DataEntrada: "";
   DataSaida:"";

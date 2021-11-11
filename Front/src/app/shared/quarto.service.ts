@@ -12,7 +12,7 @@ export class QuartoService {
   readonly baseURL = 'https://localhost:5001/api/quartos'
   formDataQuarto: Quarto = new Quarto();
   listQuarto: Quarto[];
-
+  
 
   postQuarto(){
     return this.http.post(this.baseURL, this.formDataQuarto)

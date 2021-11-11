@@ -13,6 +13,11 @@ import { Reservas } from '../shared/reservas.model';
 })
 export class QuartoComponent implements OnInit {
 
+  select: any = document.getElementById('tipoQuarto');
+
+  //valor: any = this.select.options[this.select.selectedIndex].value;
+  valor = "";
+
   constructor(public service: ReservasService, public quar: QuartoService,
     private toastr: ToastrService) { }
 
@@ -21,18 +26,18 @@ export class QuartoComponent implements OnInit {
   }
 
   onSubmitt(form: NgForm) {
-    if (this.quar.formDataQuarto.quartoID == 0)
-      this.insertRecord(form);
+    if (this.quar.listQuarto.find(q => q.quartoID == this.quar.formDataQuarto.quartoID))
+    this.updateRecord(form);
     else
-      this.updateRecord(form);
+    this.insertRecord(form);
   }
 
   insertRecord(form: NgForm) {
     this.quar.postQuarto().subscribe(
       res => {
         this.resetForm(form);
-        this.quar.refreshListQuarto();
-        this.toastr.success('Submitted successfully', 'Payment Detail Register')
+        this.service.refreshList();
+        this.toastr.error('Submitted successfully', 'Payment Detail Register')
       },
       err => { console.log(err); }
     );
@@ -42,8 +47,8 @@ export class QuartoComponent implements OnInit {
     this.quar.putQuarto().subscribe(
       res => {
         this.resetForm(form);
-        this.quar.refreshListQuarto();
-        this.toastr.info('Updated successfully', 'Payment Detail Register')
+        this.service.refreshList();
+        this.toastr.error('Updated successfully', 'Payment Detail Register')
       },
       err => { console.log(err); }
     );
@@ -55,9 +60,11 @@ export class QuartoComponent implements OnInit {
   }
 
   povuarForm(selectedRecord: Reservas){
-    this.service.formData = Object.assign({}, selectedRecord);
+    this.quar.formDataQuarto = Object.assign({}, selectedRecord);
+    //console.log("PAssseis sqioqow");
+
   }
-  
+
   onDelete(id: number) {
     if (confirm('Are you sure to delete this record?')) {
       this.service.deleteReservas(id)
@@ -71,4 +78,23 @@ export class QuartoComponent implements OnInit {
     }
   }
 
+  selecionarImg(){
+    if(this.quar.formDataQuarto.tipoQuarto == "Premiun"){
+      this.quar.formDataQuarto.imageUrl ="1.jpg"
+    }
+  }
+
+  lala(b:string){
+    b
+    console.log(b)
+  }
+
+
+  onAddCidade(){ // Função que foi chamada
+  //  this.value = this.value;
+    //console.log("estou no cidade compo... " + this.value); // Imprimiu o valor no Console log.
+  }
+
+
+  //value = this.select.options[this.select.selectedIndex].value;
 }
