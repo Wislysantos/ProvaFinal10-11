@@ -4,6 +4,10 @@
   font-family: 'Poppins', sans-serif
 }
 
+element.style{
+  background-color: #EEEEEE;
+}
+
 body, html {
   width: 100vw;
   overflow-x: hidden;

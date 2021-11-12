@@ -17,8 +17,17 @@
   <nav class="navbar navbar-expand-lg navbar-light bg-dark">
     <div class="container-fluid">
       <div class="col-8">
-        <a class="navbar-brand" href="#" style="color: white;">J&W Echo Resorts</a>
+        <div>
+          <a class="navbar-brand" href="#" style="color: white;">J&W Echo Resorts</a>
+        </div>
+        <div>
+          <li class="nav-item" *ngIf="mostrarMenu">
+            <a class="nav-link" aria-current="page" routerLink="/quarto"  style="color: white;">Area Admin</a>
+          </li>
       </div>
+      </div>
+
+     
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -38,9 +47,11 @@
             <a class="nav-link" aria-current="page" routerLink="contate-nos"  style="color: white;">Contate-nos</a>
           </li>
 
-          <li class="nav-item" *ngIf="mostrarMenu">
-            <a class="nav-link" aria-current="page" routerLink="/quarto"  style="color: white;">Area Admin</a>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" routerLink="/login"  style="color: white;">Login</a>
           </li>
+
+          
 
         </ul>
       </div>

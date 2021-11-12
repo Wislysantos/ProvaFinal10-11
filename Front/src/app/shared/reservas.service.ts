@@ -2,7 +2,7 @@ import { CadastroUsuario } from './cadastro-usuario.model';
 import { Reservas } from './reservas.model';
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 
 
@@ -12,7 +12,7 @@ import { RouterLink } from '@angular/router';
 
 export class ReservasService {
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
   }
 
   readonly baseURL = 'https://localhost:5001/api/quartos'
@@ -23,8 +23,9 @@ export class ReservasService {
   
 
   valor: number;
-  DataEntrada: "";
-  DataSaida:"";
+  DataEntrada: string;
+  DataSaida: string;
+  tipoQuarto: string;
   valorTotalReserva: number;
   url: string;
   rNome: string;
@@ -62,7 +63,11 @@ export class ReservasService {
 
  }
 
- CalcularData(dtEntrada: string, dtSaida: string, p : number, img : string){
+ CalcularData(dtEntrada: string, dtSaida: string, p : number, img : string, t: string){
+  this.DataEntrada= dtEntrada;
+  this.DataSaida = dtSaida;
+  this.tipoQuarto = t;
+  
   if(dtEntrada != "" && dtSaida != ""){
   this.url = "/assets/img/Quartos/"+img;
 
@@ -77,15 +82,10 @@ export class ReservasService {
 
   }
 }
-DadosCadastro(n: string, e: string, s :string, c :string, t: string, se: string){
 
-  this.rNome = n;
-  
+  DadosCadastro(){    
+    alert("Cadastrado com sucesso!")
+    this.router.navigate(['/'])
 
-
+  }
 }
-
-
-}
-
-

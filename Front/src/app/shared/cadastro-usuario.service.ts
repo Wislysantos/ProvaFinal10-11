@@ -46,7 +46,6 @@ export class CadastroUsuarioService {
   }
 
   DadosCadastro(n: string, e: string, s :string, c :string, t: string, se: string){
-    this.rNome = n;
     
 
   }
