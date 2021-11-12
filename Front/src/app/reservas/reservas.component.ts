@@ -7,6 +7,8 @@ import { ReservasService } from '../shared/reservas.service';
 import { Reservas } from '../shared/reservas.model';
 import * as myGlobals from '../../assets/global';
 import { LoginAuthService } from '../shared/login-auth.service';
+import { now } from 'moment';
+
 
 
 
@@ -26,6 +28,7 @@ export class ReservasComponent implements OnInit {
      private toastr: ToastrService, private authService: LoginAuthService) {
     }
 
+  public DataHoje = Date.now();  
   public valor = 0
   public quartos: any=[];
   public DataEntrada = "";
@@ -92,6 +95,10 @@ export class ReservasComponent implements OnInit {
   tipoDOQuarto(){
     if(this.filtroTipo.toLowerCase() == "premium"){
     }
+  }
+
+  ver(v: string){
+    console.log(v)
   }
 
 

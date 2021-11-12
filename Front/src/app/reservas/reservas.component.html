@@ -16,7 +16,7 @@
 
       <div class="col-md" style="display: fex; align-items: center; margin-top: 8px">
         <label for=""></label><br>
-        <button type="button" class="btn btn-primary" style="width: 100%; height: 47px;">Pesquisar</button>
+        <button type="button" class="btn btn-primary" style="width: 100%; height: 47px;"(click)="ver(DataHoje.toString())">Pesquisar</button>
       </div>
     </div>
   </div>
@@ -60,7 +60,7 @@
           <th></th>
         </tr>
       </thead>
-      <ng-container  >
+      <ng-container *ngIf="DataHoje.toString() < DataEntrada" >
       <ng-container *ngIf="DataEntrada !='' && DataSaida != '' && DataSaida > DataEntrada ">        
         <tbody *ngFor="let quarto of service.list">
             <tr  *ngIf="quarto.disponivel.toUpperCase() == 'SIM';" alt="" class="h-100">

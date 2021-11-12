@@ -22,7 +22,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'admin', component: AdminAreaComponent, canActivate:[AuthGuard]},
   {path: 'finalizar-reserva', component: FinalizarReservaComponent},
-  {path: 'quarto', component: QuartoComponent},
+  {path: 'quarto', component: QuartoComponent, canActivate:[AuthGuard]},
 ];
 
 @NgModule({

@@ -48,6 +48,7 @@ export class LoginAuthService {
     if (usuario.email == 'admin' && usuario.senha== '123'){
       this.adminAutenticado = true;
       this.mostrarMenuEmitter.emit(true);
+      this.router.navigate(['/quarto']) 
 
     }else if (usuario.email == 'usuario@email.com' && usuario.senha== '123456'){
 
