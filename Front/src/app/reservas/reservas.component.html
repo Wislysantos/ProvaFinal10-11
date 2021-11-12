@@ -14,27 +14,8 @@
         <input type="date" data-type="datepicker" placeholder="Check in" [(ngModel)]="DataSaida" >
       </div>
 
-      <div class="col-md">
-        <label for=""></label><br>
-        <select name="Adulto" [(ngModel)]="QtdPessoa">
-          <option value="1">1 Adulto</option>
-          <option value="2">2 Adultos</option>
-          <option value="3">3 Adultos</option>
-          <option value="4">4 Adultos</option>
-        </select>
-      </div>
-      <div class="col-md">
-        <label for=""></label><br>
-        <select name="Criancas" [(ngModel)]="QtdCrianca">
-          <option value="0">Nenhuma Criança</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          </select>
-      </div>
       <div class="col-md" style="display: fex; align-items: center; margin-top: 8px">
         <label for=""></label><br>
-
         <button type="button" class="btn btn-primary" style="width: 100%; height: 47px;">Pesquisar</button>
       </div>
     </div>
@@ -42,7 +23,7 @@
 
   <div class="container reserva">
 
-    <div class="row">
+    <!-- <div class="row">
       <div class="col-md"  style="display: flex; align-items: end;">
         <div class="form-inline">
           <div class="form-group mb-2">
@@ -66,7 +47,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <!-- <h3>Filtro: {{filtroLista}}</h3> -->
     <table class="table table-striped">
@@ -80,8 +61,7 @@
         </tr>
       </thead>
       <ng-container  >
-      <ng-container *ngIf="DataEntrada !='' && DataSaida != '' ">
-        <!-- <ng-container *ngFor="let quarto of quartosFiltrados"> -->
+      <ng-container *ngIf="DataEntrada !='' && DataSaida != '' && DataSaida > DataEntrada ">        
         <tbody *ngFor="let quarto of service.list">
             <tr  *ngIf="quarto.disponivel.toUpperCase() == 'SIM';" alt="" style="border: 1px solid red;" class="h-100">
               <td><img src="/assets/img/Quartos/{{quarto.imageUrl}}" style="width: 500px; border-radius: 5px;" alt="Img Quarto"></td>
@@ -93,11 +73,9 @@
               </td>
             </tr>
           </tbody>
-          <!--   </ng-container> -->
+          </ng-container>
         </ng-container>
-      </ng-container>
-
-
+      
       <tfoot >
         <tr *ngIf="service.list == null">
           <td colspan="8">

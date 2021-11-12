@@ -24,16 +24,7 @@ export class ReservasComponent implements OnInit {
 
   constructor(public service: ReservasService,
      private toastr: ToastrService, private authService: LoginAuthService) {
-     }
-
-  ngOnInit(): void {
-    this.service.refreshList();
-  }
-
-  povuarForm(selectedRecord: Reservas){
-    this.service.formData = Object.assign({}, selectedRecord);
-  }
-
+    }
 
   public valor = 0
   public quartos: any=[];
@@ -46,7 +37,14 @@ export class ReservasComponent implements OnInit {
   public quartosFiltrados: any=[];
 
 
+  ngOnInit(): void {
+    this.service.refreshList();
+  }
 
+  povuarForm(selectedRecord: Reservas){
+    this.service.formData = Object.assign({}, selectedRecord);
+  }
+  
   public get filtroLista(): string{
     return this._filtroLista;
   }
@@ -96,8 +94,8 @@ export class ReservasComponent implements OnInit {
     }
   }
 
-  
 
+  
 
 
 

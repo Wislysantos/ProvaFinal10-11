@@ -8,6 +8,13 @@ import { RouterLink } from '@angular/router';
 })
 export class CadastroUsuarioService {
 
+  rNome: string;
+  rEmal: string;
+  rSenha: string;
+  rCpf: string;
+  rTelefone: string;
+  rSexo: string;
+
   constructor(private http: HttpClient) {
 
   }
@@ -38,6 +45,11 @@ export class CadastroUsuarioService {
     return this.http.get(`${this.baseURL}/${id}`)
   }
 
+  DadosCadastro(n: string, e: string, s :string, c :string, t: string, se: string){
+    this.rNome = n;
+    
+
+  }
 
 
 }

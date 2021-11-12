@@ -11,7 +11,7 @@
             <div class="form-group">
               <label>Nome do Cliente </label>
               <input class="form-control form-control-sd" placeholder="Digite o nome" name="nome"
-              #nome="ngModel" [(ngModel)]="cadastro.formDatacas.nome"
+              #nome="ngModel" [(ngModel)]="cadastro.formDatacas.nome" 
               required [class.invalid]=" nome.invalid && nome.touched">
             </div>
           </div>
@@ -79,7 +79,7 @@
         </div>
       -->
 
-        <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Cadastro</button>
+        <button type="submit" class="btn btn-primary"(click)="cadastro.DadosCadastro(cadastro.formDatacas.nome, cadastro.formDatacas.email, cadastro.formDatacas.senha, cadastro.formDatacas.cpf, cadastro.formDatacas.telefone,cadastro.formDatacas.sexo)" [disabled]="form.invalid" routerLink="/finalizar-reserva">Cadastro</button>
       </form>
     </div>
 </div>

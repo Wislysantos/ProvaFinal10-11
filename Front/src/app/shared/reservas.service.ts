@@ -20,11 +20,19 @@ export class ReservasService {
   formData: Reservas = new Reservas();
   list: Reservas[];
 
+  
+
   valor: number;
   DataEntrada: "";
   DataSaida:"";
   valorTotalReserva: number;
   url: string;
+  rNome: string;
+  rEmal: string;
+  rSenha: string;
+  rCpf: string;
+  rTelefone: string;
+  rSexo: string;
 
 
   postReservas(){
@@ -69,7 +77,13 @@ export class ReservasService {
 
   }
 }
+DadosCadastro(n: string, e: string, s :string, c :string, t: string, se: string){
 
+  this.rNome = n;
+  
+
+
+}
 
 
 }

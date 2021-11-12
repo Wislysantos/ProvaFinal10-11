@@ -1,3 +1,5 @@
+import { CadastroUsuarioService } from './../../shared/cadastro-usuario.service';
+import { CadastroUsuarioComponent } from './../../cadastro-usuario/cadastro-usuario.component';
 import { Component, OnInit } from '@angular/core';
 import { ReservasService } from 'src/app/shared/reservas.service';
 
@@ -9,11 +11,9 @@ import { ReservasService } from 'src/app/shared/reservas.service';
 
 export class FinalizarReservaComponent implements OnInit {
 
-  constructor(public service: ReservasService) { }
-
-  valorTotalReserva: number;
+  constructor(public service: ReservasService,public cadastro: CadastroUsuarioService) { }
 
   ngOnInit(): void {
   }
-
+  
 }

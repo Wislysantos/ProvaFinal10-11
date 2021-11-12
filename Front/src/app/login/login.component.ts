@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Clientes } from '../shared/clientes.model';
 import { LoginAuthService } from '../shared/login-auth.service';
 import { Usuario } from '../shared/usuario';
 
@@ -9,16 +10,20 @@ import { Usuario } from '../shared/usuario';
 })
 export class LoginComponent implements OnInit {
 
-  public usuario: Usuario = new Usuario();//private
+  //public usuario: Clientes = new Clientes();//private
 
-  constructor(private authService: LoginAuthService) { }
+  public usuario: Clientes = new Clientes
+
+  constructor(public authService: LoginAuthService) { }
 
   ngOnInit(): void {
 
   }
 
+
   fazerLogin(){
     console.log(this.usuario);
     this.authService.fazerLogin(this.usuario);
   }
+
 }
